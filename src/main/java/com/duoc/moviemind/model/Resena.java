@@ -4,28 +4,34 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name= "usuarios")
-public class Usuario {
-    
+@Table(name= "resenas")
+
+
+public class Resena {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id_usuario;
+    private int id_resena;
+
+    @NotNull
+    private int valoracion;
 
     @NotBlank
-    private String NombreUsuario;
+    private String descripcion;
 
-    @NotBlank
-    private String correo;
-
+    @OneToOne(mappedBy = "id_resena")
+    private Pelicula pelicula;
 }
