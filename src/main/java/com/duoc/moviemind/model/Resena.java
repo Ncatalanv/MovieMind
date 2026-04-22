@@ -4,7 +4,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -24,7 +25,7 @@ public class Resena {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id_resena;
+    private int idResena;
 
     @NotNull
     private int valoracion;
@@ -32,6 +33,16 @@ public class Resena {
     @NotBlank
     private String descripcion;
 
-    @OneToOne(mappedBy = "id_resena")
+    @NotNull
+    private int fechaResena;
+
+    // En ManyToOne no se usa "mappedBy". Se usa "JoinColumn"
+    @ManyToOne
+    @JoinColumn(name = "id_pelicula")
     private Pelicula pelicula;
+
+    @ManyToOne
+    @JoinColumn(name = "id_usuario")
+    private Usuario usuario;
+
 }

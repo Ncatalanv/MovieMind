@@ -1,6 +1,7 @@
 package com.duoc.moviemind.model;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 import jakarta.persistence.Entity;
@@ -25,7 +26,7 @@ public class Pelicula {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id_pelicula;
+    private int idPelicula;
 
     @NotBlank
     private String tipo;
@@ -40,7 +41,7 @@ public class Pelicula {
     private String genero;
 
     @NotNull
-    private int añoLanzamiento;
+    private int anoLanzamiento;
 
     @NotNull
     private int duracion;
@@ -54,9 +55,12 @@ public class Pelicula {
     @NotNull
     private int popularidad;
 
-    @OneToMany(mappedBy = "id_pelicula")
-    private List<Resena> resena;
+    @OneToMany(mappedBy = "pelicula")
+    private List<Resena> resena = new ArrayList<>();
 
-    @ManyToMany(mappedBy = "id_pelicula")
-    private List<Actor> actor;
+    //Película es la clase dueña, entonces tengo que quitar el mappedBy acá.
+    //Hay que crear una tercera tabla para conectar Pelicula - Actor.
+    //Para eso tenemos que crearla con JoinTable, pero Hibernate la crea igual si no la creamos nosotros
+    @ManyToMany
+    private List<Actor> actor = new ArrayList<>();
 }

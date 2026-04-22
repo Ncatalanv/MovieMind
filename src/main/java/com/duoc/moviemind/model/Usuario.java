@@ -1,9 +1,13 @@
 package com.duoc.moviemind.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
@@ -20,12 +24,16 @@ public class Usuario {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id_usuario;
+    private int idUsuario;
 
     @NotBlank
     private String NombreUsuario;
 
     @NotBlank
     private String correo;
+
+    //Un usuario puede tener muchas reseñas, entonces necesito una lista para guardarlo 
+    @OneToMany(mappedBy="usuario")
+    private List<Resena> resena = new ArrayList<>();
 
 }

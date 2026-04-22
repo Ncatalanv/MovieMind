@@ -1,5 +1,6 @@
 package com.duoc.moviemind.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import jakarta.persistence.Entity;
@@ -25,10 +26,10 @@ public class Actor {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id_actor;
+    private int idActor;
 
-    @NotNull
-    private int nombre;
+    @NotBlank
+    private String nombre;
 
     @NotNull
     private int edad;
@@ -36,6 +37,6 @@ public class Actor {
     @NotBlank
     private String nacionalidad;
     
-    @ManyToMany(mappedBy = "id_actor")
-    private List<Pelicula> pelicula;
+    @ManyToMany(mappedBy = "actor")
+    private List<Pelicula> pelicula = new ArrayList<>();
 }
