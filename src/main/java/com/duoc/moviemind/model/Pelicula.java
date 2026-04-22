@@ -10,6 +10,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -29,9 +30,6 @@ public class Pelicula {
     private int idPelicula;
 
     @NotBlank
-    private String tipo;
-
-    @NotBlank
     private String titulo;
 
     @NotBlank
@@ -47,7 +45,8 @@ public class Pelicula {
     private int duracion;
 
     @NotBlank
-    private String protagonista;
+    @OneToOne
+    private Actor actorPrincipal;
 
     @NotNull
     private int valoracion;
