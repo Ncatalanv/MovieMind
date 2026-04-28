@@ -35,8 +35,9 @@ public class Pelicula {
     @NotBlank
     private String descripcion;
 
+    //REVISAR ATRIBUTO GENERO - OBJETO
     @NotBlank
-    private String genero;
+    private Genero genero;
 
     @NotNull
     private int anoLanzamiento;
@@ -62,4 +63,7 @@ public class Pelicula {
     //Para eso tenemos que crearla con JoinTable, pero Hibernate la crea igual si no la creamos nosotros
     @ManyToMany
     private List<Actor> actor = new ArrayList<>();
+
+    @ManyToMany
+    private List<Genero> generos = new ArrayList<>();
 }
