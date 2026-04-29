@@ -8,7 +8,9 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
@@ -37,7 +39,8 @@ public class Pelicula {
 
     //REVISAR ATRIBUTO GENERO - OBJETO
     @NotBlank
-    private Genero genero;
+    @OneToOne
+    private Genero generoPrincipal;
 
     @NotNull
     private int anoLanzamiento;
@@ -64,6 +67,7 @@ public class Pelicula {
     @ManyToMany
     private List<Actor> actor = new ArrayList<>();
 
-    @ManyToMany
-    private List<Genero> generos = new ArrayList<>();
+    @ManyToOne
+    @JoinColumn(name="id_genero")
+    private Genero genero;
 }
