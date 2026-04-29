@@ -20,8 +20,18 @@ public class PeliculaService {
     }
 
     public Pelicula getPeliculaId(int id){
-        return peliculaRepository.find
+        return peliculaRepository.findById(id).orElse(null);
+    }
 
+    public Pelicula updatePelicula(Pelicula pelicula){
+        if(!peliculaRepository.existsById(pelicula.getIdPelicula())){
+            return null;
+        }
+        return peliculaRepository.save(pelicula);
+    }
+
+    public void detelePelicula(int id){
+        peliculaRepository.deleteById(id);
     }
 
 
