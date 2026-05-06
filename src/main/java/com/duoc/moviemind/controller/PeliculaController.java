@@ -38,6 +38,7 @@ public class PeliculaController {
 
     @GetMapping("/{id}")
     public ResponseEntity<Pelicula> buscarPelicula(@PathVariable int id){
+        System.out.println("[PeliculaController] -> buscarPelicula id=" + id);
         Pelicula pelicula = peliculaService.getPeliculaId(id);
         if(pelicula == null){
             return ResponseEntity.notFound().build();
