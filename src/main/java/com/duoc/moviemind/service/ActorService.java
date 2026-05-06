@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import com.duoc.moviemind.model.Actor;
 import com.duoc.moviemind.repository.ActorRepository;
 
@@ -26,7 +27,7 @@ public class ActorService {
 
     }
 
-     public Actor updatePelicula(Actor actor){
+     public Actor updateActor(Actor actor){
         if(!actorRepository.existsById(actor.getIdActor())){
             return null;
         }
