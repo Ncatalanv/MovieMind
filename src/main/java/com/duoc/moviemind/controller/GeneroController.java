@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.duoc.moviemind.model.Genero;
 import com.duoc.moviemind.service.GeneroService;
+
 import jakarta.validation.Valid;
 
 
@@ -57,7 +58,7 @@ public class GeneroController {
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> eliminarGenero(@PathVariable int id){
-        generoService.deteleGenero(id);
+        generoService.deleteGenero(id);
         return ResponseEntity.noContent().build();
     }
 

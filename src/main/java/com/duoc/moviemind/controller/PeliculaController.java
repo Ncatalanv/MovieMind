@@ -58,7 +58,7 @@ public class PeliculaController {
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> eliminarPelicula(@PathVariable int id){
-        peliculaService.detelePelicula(id);
+        peliculaService.deletePelicula(id);
         return ResponseEntity.noContent().build();
     }
 

@@ -32,7 +32,7 @@ public class PeliculaService {
         return peliculaRepository.save(pelicula);
     }
 
-    public void detelePelicula(int id){
+    public void deletePelicula(int id){
         peliculaRepository.deleteById(id);
     }
 

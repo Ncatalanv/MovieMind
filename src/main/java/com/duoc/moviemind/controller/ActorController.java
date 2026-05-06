@@ -46,7 +46,7 @@ public class ActorController {
         return ResponseEntity.ok(actor);
     }
 
-    @PutMapping("/{id]")
+    @PutMapping("/{id}")
     public ResponseEntity<Actor> actualizarActor(@PathVariable int id, @Valid @RequestBody Actor actor){
         actor.setIdActor(id);
         Actor actualizado = actorService.updateActor(actor);
