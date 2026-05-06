@@ -22,7 +22,7 @@ public class ActorService {
         return actorRepository.save(actor);
     }
 
-    public Actor getActorId(int id){
+    public Actor getActorId(Integer id){
         return actorRepository.findById(id).orElse(null);
 
     }
@@ -34,7 +34,7 @@ public class ActorService {
         return actorRepository.save(actor);
     }
 
-    public void deleteActor(int id){
+    public void deleteActor(Integer id){
         actorRepository.deleteById(id);
     }
 

@@ -29,7 +29,7 @@ public class Pelicula {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idPelicula;
+    private Integer idPelicula;
 
     @NotBlank
     private String titulo;
@@ -43,20 +43,20 @@ public class Pelicula {
     private Genero generoPrincipal;
 
     @NotNull
-    private int anoLanzamiento;
+    private Integer anoLanzamiento;
 
     @NotNull
-    private int duracion;
+    private Integer duracion;
 
     @NotBlank
     @OneToOne
     private Actor actorPrincipal;
 
     @NotNull
-    private int valoracion;
+    private Integer valoracion;
 
     @NotNull
-    private int popularidad;
+    private Integer popularidad;
 
     @OneToMany(mappedBy = "pelicula")
     private List<Resena> resena = new ArrayList<>();

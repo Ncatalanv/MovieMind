@@ -25,16 +25,16 @@ public class Resena {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idResena;
+    private Integer idResena;
 
     @NotNull
-    private int valoracion;
+    private Integer valoracion;
 
     @NotBlank
     private String descripcion;
 
     @NotNull
-    private int fechaResena;
+    private Integer fechaResena;
 
     // En ManyToOne no se usa "mappedBy". Se usa "JoinColumn"
     @ManyToOne

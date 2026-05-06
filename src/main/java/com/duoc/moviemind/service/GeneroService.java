@@ -22,7 +22,7 @@ public class GeneroService {
         return generoRepository.save(genero);
     }
 
-    public Genero getGeneroId(int id){
+    public Genero getGeneroId(Integer id){
         return generoRepository.findById(id).orElse(null);
     }
 
@@ -33,7 +33,7 @@ public class GeneroService {
         return generoRepository.save(genero);
     }
 
-    public void deleteGenero(int id){
+    public void deleteGenero(Integer id){
         generoRepository.deleteById(id);
     }
 

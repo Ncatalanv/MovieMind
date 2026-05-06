@@ -37,7 +37,7 @@ public class GeneroController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Genero> buscarGenero(@PathVariable int id){
+    public ResponseEntity<Genero> buscarGenero(@PathVariable Integer id){
         System.out.println("[GeneroController] -> buscarGenero id=" + id);
         Genero genero = generoService.getGeneroId(id);
         if(genero == null){
@@ -47,7 +47,7 @@ public class GeneroController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Genero> actualizarGenero(@PathVariable int id, @Valid @RequestBody Genero genero){
+    public ResponseEntity<Genero> actualizarGenero(@PathVariable Integer id, @Valid @RequestBody Genero genero){
         genero.setIdGenero(id);
         Genero actualizado = generoService.updateGenero(genero);
         if(actualizado == null){
@@ -57,7 +57,7 @@ public class GeneroController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> eliminarGenero(@PathVariable int id){
+    public ResponseEntity<Void> eliminarGenero(@PathVariable Integer id){
         generoService.deleteGenero(id);
         return ResponseEntity.noContent().build();
     }

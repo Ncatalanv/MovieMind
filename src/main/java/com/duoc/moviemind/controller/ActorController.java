@@ -37,7 +37,7 @@ public class ActorController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Actor> buscarActor(@PathVariable int id){
+    public ResponseEntity<Actor> buscarActor(@PathVariable Integer id){
         System.out.println("[ActorController] -> buscarActor id=" + id);
         Actor actor = actorService.getActorId(id);
         if(actor == null){
@@ -47,7 +47,7 @@ public class ActorController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Actor> actualizarActor(@PathVariable int id, @Valid @RequestBody Actor actor){
+    public ResponseEntity<Actor> actualizarActor(@PathVariable Integer id, @Valid @RequestBody Actor actor){
         actor.setIdActor(id);
         Actor actualizado = actorService.updateActor(actor);
         if(actualizado == null){
@@ -57,7 +57,7 @@ public class ActorController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> eliminarActor(@PathVariable int id){
+    public ResponseEntity<Void> eliminarActor(@PathVariable Integer id){
         actorService.deleteActor(id);
         return ResponseEntity.noContent().build();
     }

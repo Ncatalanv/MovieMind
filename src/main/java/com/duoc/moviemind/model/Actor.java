@@ -26,13 +26,13 @@ public class Actor {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idActor;
+    private Integer idActor;
 
     @NotBlank
     private String nombre;
 
     @NotNull
-    private int edad;
+    private Integer edad;
 
     @NotBlank
     private String nacionalidad;

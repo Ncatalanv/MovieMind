@@ -33,11 +33,12 @@ public class PeliculaController {
 
     @PostMapping
     public ResponseEntity<Pelicula> agregarPelicula(@Valid @RequestBody Pelicula pelicula){
+        System.out.println("Voy a crear una película");
         return ResponseEntity.status(HttpStatus.CREATED).body(peliculaService.savePelicula(pelicula));
     }
         
     @GetMapping("/{id}")
-    public ResponseEntity<Pelicula> buscarPelicula(@PathVariable int id){
+    public ResponseEntity<Pelicula> buscarPelicula(@PathVariable Integer id){
         System.out.println("[PeliculaController] -> buscarPelicula id=" + id);
         Pelicula pelicula = peliculaService.getPeliculaId(id);
         if(pelicula == null){
@@ -47,7 +48,7 @@ public class PeliculaController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Pelicula> actualizarPelicula(@PathVariable int id, @Valid @RequestBody Pelicula pelicula){
+    public ResponseEntity<Pelicula> actualizarPelicula(@PathVariable Integer id, @Valid @RequestBody Pelicula pelicula){
         pelicula.setIdPelicula(id);
         Pelicula actualizado = peliculaService.updatePelicula(pelicula);
         if(actualizado == null){
@@ -57,7 +58,7 @@ public class PeliculaController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> eliminarPelicula(@PathVariable int id){
+    public ResponseEntity<Void> eliminarPelicula(@PathVariable Integer id){
         peliculaService.deletePelicula(id);
         return ResponseEntity.noContent().build();
     }

@@ -21,7 +21,7 @@ public class ResenaService {
         return resenaRepository.save(resena);
     }
 
-    public Resena getResenaId(int id){
+    public Resena getResenaId(Integer id){
         return resenaRepository.findById(id).orElse(null);
     }
 
@@ -32,7 +32,7 @@ public class ResenaService {
         return resenaRepository.save(resena);
     }
 
-    public void deleteResena(int id){
+    public void deleteResena(Integer id){
         resenaRepository.deleteById(id);
     }
     

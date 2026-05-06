@@ -23,7 +23,7 @@ public class Genero {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idGenero;
+    private Integer idGenero;
 
     @NotBlank
     private String nombre;

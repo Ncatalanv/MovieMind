@@ -18,10 +18,11 @@ public class PeliculaService {
     }
 
     public Pelicula savePelicula(Pelicula pelicula){
+        System.out.println("Estoy en PeliculaService");
         return peliculaRepository.save(pelicula);
     }
 
-    public Pelicula getPeliculaId(int id){
+    public Pelicula getPeliculaId(Integer id){
         return peliculaRepository.findById(id).orElse(null);
     }
 
@@ -32,7 +33,7 @@ public class PeliculaService {
         return peliculaRepository.save(pelicula);
     }
 
-    public void deletePelicula(int id){
+    public void deletePelicula(Integer id){
         peliculaRepository.deleteById(id);
     }
 
