@@ -8,9 +8,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToMany;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
@@ -58,16 +55,15 @@ public class Pelicula {
     @NotNull
     private Integer popularidad;
 
-    @OneToMany(mappedBy = "pelicula")
+    @OneToMany //(mappedBy = "pelicula")
     private List<Resena> resena = new ArrayList<>();
 
     //Película es la clase dueña, entonces tengo que quitar el mappedBy acá.
     //Hay que crear una tercera tabla para conectar Pelicula - Actor.
     //Para eso tenemos que crearla con JoinTable, pero Hibernate la crea igual si no la creamos nosotros
-    @ManyToMany
+    @OneToMany
     private List<Actor> actor = new ArrayList<>();
 
-    @ManyToOne
-    @JoinColumn(name="id_genero")
-    private Genero genero;
+    //@OneToOne
+    //private Genero genero;
 }

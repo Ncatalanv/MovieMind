@@ -33,6 +33,7 @@ public class GeneroController {
 
     @PostMapping
     public ResponseEntity<Genero> agregarGenero(@Valid @RequestBody Genero genero){
+        System.out.println("Estoy en el PostMapping y quiero agregar genero");
         return ResponseEntity.status(HttpStatus.CREATED).body(generoService.saveGenero(genero));
     }
 
