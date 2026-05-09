@@ -8,8 +8,9 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
-import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -35,8 +36,9 @@ public class Pelicula {
     private String descripcion;
 
     //REVISAR ATRIBUTO GENERO - OBJETO
-    @NotBlank
-    @OneToOne
+    @NotNull
+    @ManyToOne
+    @JoinColumn(name = "id_genero")
     private Genero generoPrincipal;
 
     @NotNull
@@ -45,8 +47,9 @@ public class Pelicula {
     @NotNull
     private Integer duracion;
 
-    @NotBlank
-    @OneToOne
+    @NotNull
+    @ManyToOne
+    @JoinColumn(name= "id_actor_principal")
     private Actor actorPrincipal;
 
     @NotNull
@@ -55,15 +58,18 @@ public class Pelicula {
     @NotNull
     private Integer popularidad;
 
-    @OneToMany //(mappedBy = "pelicula")
+    @OneToMany(mappedBy = "pelicula")
     private List<Resena> resena = new ArrayList<>();
+
+
 
     //Película es la clase dueña, entonces tengo que quitar el mappedBy acá.
     //Hay que crear una tercera tabla para conectar Pelicula - Actor.
     //Para eso tenemos que crearla con JoinTable, pero Hibernate la crea igual si no la creamos nosotros
-    @OneToMany
-    private List<Actor> actor = new ArrayList<>();
+    //@OneToMany
+    //private List<Actor> actor = new ArrayList<>();
 
-    //@OneToOne
+    //@ManyToOne
+    //@JoinColumn(name = "id_genero")
     //private Genero genero;
 }

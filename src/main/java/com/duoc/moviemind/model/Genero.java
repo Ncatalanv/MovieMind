@@ -1,9 +1,15 @@
 package com.duoc.moviemind.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
@@ -24,7 +30,9 @@ public class Genero {
     @NotBlank
     private String nombre;
 
-    //@OneToMany
-    //private List<Pelicula> pelicula = new ArrayList<>();
+    //JsonIgnore ignorará este campo y no lo mostrará (la lista de películas a las cuales pertenece)
+    @JsonIgnore
+    @OneToMany
+    private List<Pelicula> peliculas = new ArrayList<>();
 
 }
