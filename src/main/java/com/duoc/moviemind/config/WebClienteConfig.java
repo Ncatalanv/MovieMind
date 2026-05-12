@@ -8,15 +8,14 @@ import org.springframework.web.reactive.function.client.WebClient;
 @Configuration
 public class WebClienteConfig {
 
-    @Value("${openmeteo.base-url}")
-    private String openMeteoBaseUrl;
+    @Value("${imdb.base-url}")
+    private String imdbBaseUrl;
 
     @Bean
-    public WebClient weatherWebClient() {
+    public WebClient imdbWebClient() {
         return WebClient.builder()
-                .baseUrl(openMeteoBaseUrl)
+                .baseUrl(imdbBaseUrl)
                 .defaultHeader("Accept", "application/json")
                 .build();
     }
-
 }

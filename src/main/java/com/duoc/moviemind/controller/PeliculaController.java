@@ -60,6 +60,7 @@ public class PeliculaController {
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> eliminarPelicula(@PathVariable Integer id){
         peliculaService.deletePelicula(id);
+        System.out.println("Pelicula eliminada exitosamente");
         return ResponseEntity.noContent().build();
     }
 
