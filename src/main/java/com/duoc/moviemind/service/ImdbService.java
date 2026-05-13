@@ -18,7 +18,6 @@ public class ImdbService {
         return imdbWebClient.get()
                 .uri(uriBuilder -> uriBuilder
                         .path("/titles")
-                        .queryParam("current_weather", true)
                         .build())
                 .retrieve()
                 .bodyToMono(ImdbDTO.class)

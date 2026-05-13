@@ -10,7 +10,7 @@ import com.duoc.moviemind.dto.ImdbDTO;
 import com.duoc.moviemind.service.ImdbService;
 
 @RestController
-@RequestMapping("/titles")
+@RequestMapping("/api/v1/titles")
 public class ImdbController {
 
     @Autowired

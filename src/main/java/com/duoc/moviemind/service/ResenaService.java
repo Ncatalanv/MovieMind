@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.duoc.moviemind.dto.ResenaPeliculaUsuarioDTO;
 import com.duoc.moviemind.model.Resena;
 import com.duoc.moviemind.repository.ResenaRepository;
 
@@ -34,6 +35,16 @@ public class ResenaService {
 
     public void deleteResena(Integer id){
         resenaRepository.deleteById(id);
+    }
+
+    public List<ResenaPeliculaUsuarioDTO> getResenaPeliculaUsuario() {
+        return resenaRepository.findAll().stream()
+                .map(l -> new ResenaPeliculaUsuarioDTO(
+                        l.getDescripcion(),
+                        l.getPelicula().getTitulo(),
+                        l.getUsuario().getNombreUsuario()
+                ))
+                .toList();
     }
     
 }

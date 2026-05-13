@@ -27,7 +27,7 @@ public class Usuario {
     private Integer idUsuario;
 
     @NotBlank
-    private String NombreUsuario;
+    private String nombreUsuario;
 
     @NotBlank
     private String correo;
