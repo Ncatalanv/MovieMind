@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.duoc.moviemind.dto.ResenaPeliculaUsuarioDTO;
 import com.duoc.moviemind.model.Resena;
 import com.duoc.moviemind.service.ResenaService;
 
@@ -61,6 +62,12 @@ public class ResenaController {
     public ResponseEntity<Void> eliminarResena(@PathVariable Integer id){
         resenaService.deleteResena(id);
         return ResponseEntity.noContent().build();
+    }
+
+    @GetMapping("/resena-usuario-pelicula")
+    public ResponseEntity<List<ResenaPeliculaUsuarioDTO>> resenasPorPeliculaYUsuario() {
+        System.out.println("[ResenaController] -> resenasPorPeliculaYUsuario");
+        return ResponseEntity.ok(resenaService.getResenaPeliculaUsuario());
     }
 
 
