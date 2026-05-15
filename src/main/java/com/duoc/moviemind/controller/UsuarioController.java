@@ -30,12 +30,14 @@ public class UsuarioController {
 
     @GetMapping
     public ResponseEntity<List<Usuario>> listaUsuarios(){
+        System.out.println("[UsuarioController] -> listarUsuarios");
         return ResponseEntity.ok(usuarioService.getUsuarios());
     }
 
     @PostMapping
     public ResponseEntity<Usuario> agregarUsuario(@Valid @RequestBody Usuario usuario){
-        System.out.println("Estoy en el PostMapping y quiero agregar un usuario");
+        System.out.println("[UsuarioController] -> agregarUsuarios");
+        //System.out.println("Estoy en el PostMapping y quiero agregar un usuario");
         return ResponseEntity.status(HttpStatus.CREATED).body(usuarioService.saveUsuario(usuario));
     }
 
@@ -51,6 +53,7 @@ public class UsuarioController {
 
     @PutMapping("/{id}")
     public ResponseEntity<Usuario> actualizarUsuario(@PathVariable Integer id, @Valid @RequestBody Usuario usuario){
+        System.out.println("[UsuarioController] -> actualizarUsuario id=" + id);
         usuario.setIdUsuario(id);
         Usuario actualizado = usuarioService.updateUsuario(usuario);
         if(actualizado == null){
@@ -61,6 +64,7 @@ public class UsuarioController {
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> eliminarUsuario(@PathVariable Integer id){
+        System.out.println("[UsuarioController] -> eliminarUsuario id=" + id);
         usuarioService.deleteUsuario(id);
         return ResponseEntity.noContent().build();
     }
