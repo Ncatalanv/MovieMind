@@ -28,11 +28,13 @@ public class ActorController {
 
     @GetMapping
     public ResponseEntity<List<Actor>> listarActores(){
+        System.out.println("[ActorController] -> listarActores");
         return ResponseEntity.ok(actorService.getActores());
     }
 
     @PostMapping
     public ResponseEntity<Actor> agregarActor(@Valid @RequestBody Actor actor){
+        System.out.println("[ActorController] -> agregarActor");
         return ResponseEntity.status(HttpStatus.CREATED).body(actorService.saveActor(actor));
     }
 
@@ -48,6 +50,7 @@ public class ActorController {
 
     @PutMapping("/{id}")
     public ResponseEntity<Actor> actualizarActor(@PathVariable Integer id, @Valid @RequestBody Actor actor){
+        System.out.println("[ActorController] -> actualizarActor id=" + id);
         actor.setIdActor(id);
         Actor actualizado = actorService.updateActor(actor);
         if(actualizado == null){
@@ -58,6 +61,7 @@ public class ActorController {
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> eliminarActor(@PathVariable Integer id){
+        System.out.println("[ActorController] -> eliminarActor id=" + id);
         actorService.deleteActor(id);
         return ResponseEntity.noContent().build();
     }
