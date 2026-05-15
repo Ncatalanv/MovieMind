@@ -28,12 +28,13 @@ public class GeneroController {
 
     @GetMapping
     public ResponseEntity<List<Genero>> listaGenero(){
+        System.out.println("[GeneroController] -> listarGeneros");
         return ResponseEntity.ok(generoService.getGeneros());
     }
 
     @PostMapping
     public ResponseEntity<Genero> agregarGenero(@Valid @RequestBody Genero genero){
-        System.out.println("Estoy en el PostMapping y quiero agregar genero");
+                System.out.println("[GeneroController] -> agregarGeneros");
         return ResponseEntity.status(HttpStatus.CREATED).body(generoService.saveGenero(genero));
     }
 
@@ -49,6 +50,7 @@ public class GeneroController {
 
     @PutMapping("/{id}")
     public ResponseEntity<Genero> actualizarGenero(@PathVariable Integer id, @Valid @RequestBody Genero genero){
+        System.out.println("[GeneroController] -> actualizarGenero id=" + id);
         genero.setIdGenero(id);
         Genero actualizado = generoService.updateGenero(genero);
         if(actualizado == null){
@@ -59,6 +61,7 @@ public class GeneroController {
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> eliminarGenero(@PathVariable Integer id){
+        System.out.println("[GeneroController] -> eliminarGenero id=" + id);
         generoService.deleteGenero(id);
         return ResponseEntity.noContent().build();
     }

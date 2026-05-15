@@ -18,7 +18,6 @@ public class ImdbController {
 
     @GetMapping
     public ResponseEntity<ImdbDTO> pelis() {
-
         ImdbDTO resultado = imdbService.obtenerPeliculas();
         return ResponseEntity.ok(resultado);
     }

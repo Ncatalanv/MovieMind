@@ -29,12 +29,14 @@ public class ResenaController {
 
     @GetMapping
     public ResponseEntity<List<Resena>> listaResenas(){
+        System.out.println("[ResenaController] -> listarResenas");
         return ResponseEntity.ok(resenaService.getResena());
     }
 
     @PostMapping
     public ResponseEntity<Resena> agregarResena(@Valid @RequestBody Resena resena){
-        System.out.println("Estoy en el PostMapping y quiero agregar una resena");
+        System.out.println("[ResenaController] -> agregarResenas");
+        //System.out.println("Estoy en el PostMapping y quiero agregar una resena");
         return ResponseEntity.status(HttpStatus.CREATED).body(resenaService.saveResena(resena));
     }
 
@@ -50,6 +52,7 @@ public class ResenaController {
 
     @PutMapping("/{id}")
     public ResponseEntity<Resena> actualizarResena(@PathVariable Integer id, @Valid @RequestBody Resena resena){
+        System.out.println("[ResenaController] -> actualizarResena id=" + id);
         resena.setIdResena(id);
         Resena actualizado = resenaService.updateResena(resena);
         if(actualizado == null){
@@ -60,6 +63,7 @@ public class ResenaController {
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> eliminarResena(@PathVariable Integer id){
+        System.out.println("[ResenaController] -> eliminarResena id=" + id);
         resenaService.deleteResena(id);
         return ResponseEntity.noContent().build();
     }
