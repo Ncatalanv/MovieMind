@@ -1,6 +1,6 @@
 package com.duoc.moviemind.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -39,14 +39,16 @@ public class Resena {
     private Integer fechaResena;
 
     // En ManyToOne no se usa "mappedBy". Se usa "JoinColumn"
+    @NotNull
     @ManyToOne
-    @JsonIgnore
     @JoinColumn(name = "id_pelicula")
+    // Traerá la película, pero ignorará la lista resena que está dentro
+    @JsonIgnoreProperties("resena")
     private Pelicula pelicula;
 
     @ManyToOne
-    @JsonIgnore
     @JoinColumn(name = "id_usuario")
+    @JsonIgnoreProperties("resena")
     private Usuario usuario;
 
 }

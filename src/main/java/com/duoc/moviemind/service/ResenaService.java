@@ -40,8 +40,8 @@ public class ResenaService {
     public List<ResenaPeliculaUsuarioDTO> getResenaPeliculaUsuario() {
         return resenaRepository.findAll().stream()
                 .map(l -> new ResenaPeliculaUsuarioDTO(
-                        l.getDescripcion(),
                         l.getPelicula().getTitulo(),
+                        l.getDescripcion(),
                         l.getUsuario().getNombreUsuario()
                 ))
                 .toList();

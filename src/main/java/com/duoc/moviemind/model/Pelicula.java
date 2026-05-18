@@ -4,6 +4,8 @@ package com.duoc.moviemind.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -59,6 +61,8 @@ public class Pelicula {
     private Integer popularidad;
 
     @OneToMany(mappedBy = "pelicula")
+    // Al traer las resenas, no repetirán la película de dentro
+    @JsonIgnoreProperties("pelicula")
     private List<Resena> resena = new ArrayList<>();
 
 
