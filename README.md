@@ -241,5 +241,7 @@ Esto evita escribir mucho código repetitivo (boilerplate).
 ## 7) Autores
 
 -Nicolas Catalan - Correo : ncatalan111@gmail.com
+
 -Ayline Sandoval - Correo : ayli.sandoval@duocuc.cl
+
 -Luciana Villarroel - Correo : luci.villarroel@duocuc.cl
