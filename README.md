@@ -60,10 +60,10 @@ http://localhost:8080
 Base path de los controladores:
 
 
-/api/v1/pelicula
-/api/v1/actor
-/api/v1/resena
-/api/v1/usuario
+/api/v1/peliculas
+/api/v1/actores
+/api/v1/resenas
+/api/v1/usuarios
 
 
 ---
@@ -73,60 +73,66 @@ Base path de los controladores:
 ### 5.1 Listar Películas
 
 - *Método:* GET
-- *URL:* /api/v1/pelicula
+- *URL:* /api/v1/peliculas
 - *Descripción:* retorna todas las películas almacenadas en la base de datos.
 
 ### 5.2 Mostrar Película según el ID
 
 - *Método:* GET
-- *URL:* /api/v1/pelicula/{ID}
+- *URL:* /api/v1/peliculas/{ID}
 - *Descripción:* retorna una película según el ID.
 
 ### 5.3 Crear una Película
 
 - *Método:* POST
-- *URL:* /api/v1/pelicula
+- *URL:* /api/v1/peliculas
 - *Descripción:* crea una película en la base de datos.
 - *Body JSON ejemplo:*
 
 json
 {
-    "tipo":             "Película",
-    "titulo":           "Inception",
-    "descripcion":      "Un ladrón que roba secretos a través de los sueños.",
-    "genero":           "Ciencia Ficción",
-    "añoLanzamiento":   2010,
-    "duracion":         148,
-    "protagonista":     "Leonardo DiCaprio",
-    "valoracion":       9,
-    "popularidad":      95
+    "titulo": "Saw",
+    "descripcion": "pelicula buena",
+    "generoPrincipal": {
+        "idGenero": 1
+    },
+    "anoLanzamiento":  1232112,
+    "duracion": 300,
+    "actorPrincipal": {
+        "idActor": 1
+    },
+    "valoracion": 10,
+    "popularidad": 9
 }
 
 
 ### 5.4 Eliminar una Película
 
 - *Método:* DELETE
-- *URL:* /api/v1/pelicula/{ID}
+- *URL:* /api/v1/peliculas/{ID}
 - *Descripción:* elimina una película de la base de datos según el ID.
 
 ### 5.5 Actualizar una Película
 
 - *Método:* PUT
-- *URL:* /api/v1/pelicula/{ID}
+- *URL:* /api/v1/peliculas/{ID}
 - *Descripción:* actualiza los datos de una película en la base de datos según el ID.
 - *Body JSON ejemplo:*
 
 json
 {
-    "tipo":             "Película",
-    "titulo":           "Inception - Edición Especial",
-    "descripcion":      "Un ladrón que roba secretos a través de los sueños.",
-    "genero":           "Ciencia Ficción",
-    "añoLanzamiento":   2010,
-    "duracion":         148,
-    "protagonista":     "Leonardo DiCaprio",
-    "valoracion":       10,
-    "popularidad":      98
+    "titulo": "Saw",
+    "descripcion": "pelicula buena",
+    "generoPrincipal": {
+        "idGenero": 1
+    },
+    "anoLanzamiento":  1232112,
+    "duracion": 300,
+    "actorPrincipal": {
+        "idActor": 1
+    },
+    "valoracion": 10,
+    "popularidad": 9
 }
 
 
