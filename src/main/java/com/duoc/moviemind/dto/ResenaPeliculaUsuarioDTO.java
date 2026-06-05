@@ -10,6 +10,6 @@ import lombok.NoArgsConstructor;
 public class ResenaPeliculaUsuarioDTO {
     private String titulo;
     private String descripcion;
-    private String nombreUsuario;
+    private String nombreUsuarioWeb;
     
 }

@@ -42,7 +42,7 @@ public class ResenaService {
                 .map(l -> new ResenaPeliculaUsuarioDTO(
                         l.getPelicula().getTitulo(),
                         l.getDescripcion(),
-                        l.getUsuario().getNombreUsuario()
+                        l.getUsuarioWeb().getNombreUsuarioWeb()
                 ))
                 .toList();
     }

@@ -47,8 +47,8 @@ public class Resena {
     private Pelicula pelicula;
 
     @ManyToOne
-    @JoinColumn(name = "id_usuario")
+    @JoinColumn(name = "id_usuarioweb")
     @JsonIgnoreProperties("resena")
-    private Usuario usuario;
+    private UsuarioWeb usuarioWeb;
 
 }

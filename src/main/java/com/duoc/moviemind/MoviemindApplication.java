@@ -10,4 +10,5 @@ public class MoviemindApplication {
 		SpringApplication.run(MoviemindApplication.class, args);
 	}
 
+	
 }
