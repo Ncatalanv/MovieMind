@@ -16,17 +16,18 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
 @Data
-//@AllArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name= "peliculas")
 public class Pelicula {
 
     //Borré el NoArgsConstructor por un error
-    public Pelicula() {
-    }
+    //public Pelicula() {
+    //}
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
