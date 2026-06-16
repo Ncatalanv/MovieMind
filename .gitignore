@@ -34,5 +34,5 @@ build/
 
 # Local environment secrets
 .env
-.env.#
+.env.*
 !.env.moviemind
